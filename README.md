@@ -1,38 +1,136 @@
-# applydhub-web
-Applyd Hub website
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Applyd Hub — Web
 
-## Getting Started
+The marketing landing page for Applyd Hub — a job application management platform. Built with Next.js 15, React 19, and Tailwind CSS v4.
 
-First, run the development server:
+---
+
+## Table of Contents
+
+- [Stack](#stack)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+
+---
+
+## Stack
+
+| Layer           | Technology                                            |
+| --------------- | ----------------------------------------------------- |
+| Framework       | Next.js 15 (App Router)                               |
+| Language        | TypeScript 5 (strict mode)                            |
+| Styling         | Tailwind CSS v4 + shadcn/ui                           |
+| Fonts           | Inter (body), Comfortaa (logo) via `next/font/google` |
+| Theme           | next-themes (light / dark / system)                   |
+| Icons           | lucide-react, react-icons                             |
+| Package manager | Yarn (only)                                           |
+
+---
+
+## Setup
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repo-url>
+cd applyd-hub/applydhub-web
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> Never use `npm` or `pnpm`. Yarn is the only supported package manager.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run all commands from within the `applydhub-web/` directory.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Development
 
-## Deploy on Vercel
+| Command      | Description                                             |
+| ------------ | ------------------------------------------------------- |
+| `yarn dev`   | Start the Next.js dev server at `http://localhost:3000` |
+| `yarn build` | Build for production                                    |
+| `yarn start` | Run the production build locally                        |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Code quality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command     | Description                   |
+| ----------- | ----------------------------- |
+| `yarn lint` | Run ESLint across the project |
+
+---
+
+## Folder Structure
+
+```
+applydhub-web/
+├── app/                        # Next.js App Router
+│   ├── globals.css             #   Global styles, CSS variables, animations
+│   ├── layout.tsx              #   Root layout — fonts, metadata, ThemeProvider
+│   ├── page.tsx                #   Home page — composes all landing sections
+│   ├── terms/                  #   Terms of Service page
+│   └── privacy/                #   Privacy Policy page
+│
+├── components/
+│   ├── sections/               # Landing page sections (one file per section)
+│   │   ├── HeroSection/        #   Hero — two-column layout with animated phone mockup
+│   │   │   ├── index.tsx
+│   │   │   ├── HeroLeft.tsx
+│   │   │   └── HeroPhone.tsx
+│   │   ├── ProblemStrip.tsx    #   Pain point — Numbers Game comparison cards
+│   │   ├── FeaturesSection.tsx #   Feature rows with illustrations (alternating layout)
+│   │   ├── HowItWorksSection.tsx
+│   │   ├── LanguagesSection.tsx
+│   │   └── DownloadCTA.tsx     #   Full-width CTA with store badges
+│   │
+│   ├── Header.tsx              # Sticky header — logo, nav, theme toggle, CTA
+│   ├── Footer.tsx              # Dark footer — logo, links, copyright
+│   ├── Logo.tsx                # Logo icon + LogoText component (light/dark aware)
+│   ├── StoreBadges.tsx         # Reusable App Store + Google Play badges
+│   ├── LegalPage.tsx           # Shared layout for Terms and Privacy pages
+│   ├── ThemeProvider.tsx       # next-themes provider wrapper (client)
+│   ├── ThemeToggle.tsx         # Sun/moon icon button (client)
+│   └── FadeIn.tsx              # Scroll-reveal wrapper using IntersectionObserver
+│
+├── public/
+│   └── images/                 # Static assets (icons, screenshots, headshot)
+│
+├── next.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+---
+
+## Contributing
+
+### Branching
+
+Use the format `<type>/<short-description>`, e.g. `feat/dark-mode` or `fix/hero-animation`.
+
+### Commit messages
+
+Follows [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat(hero): add floating cards to phone mockup
+fix(legal): replace anchor tags with Next.js Link
+chore: upgrade next-themes to 0.4.6
+```
+
+| Type       | When to use                               |
+| ---------- | ----------------------------------------- |
+| `feat`     | New section, component, or visible change |
+| `fix`      | Bug fix                                   |
+| `style`    | Tailwind/CSS only — no logic change       |
+| `refactor` | Code restructure without behaviour change |
+| `chore`    | Dependencies, config, tooling             |
+| `docs`     | README or comment updates                 |
