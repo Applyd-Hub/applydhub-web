@@ -26,7 +26,7 @@ export default function Home() {
 			<FadeIn>
 				<DownloadCTA />
 			</FadeIn>
-			<FadeIn>
+			<FadeIn direction="none">
 				<Footer />
 			</FadeIn>
 		</div>
