@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { APP_CONSTANTS } from "@/lib/constants";
 
 const inter = Inter({
 	variable: "--font-sans",
@@ -16,10 +17,8 @@ const comfortaa = Comfortaa({
 	weight: ["700"],
 });
 
-const BASE_URL = "https://www.applydhub.com";
-
 export const metadata: Metadata = {
-	metadataBase: new URL(BASE_URL),
+	metadataBase: new URL(APP_CONSTANTS.baseUrl),
 	title: {
 		default: "Applyd Hub — AI Resume Builder & Job Application Tracker",
 		template: "%s — Applyd Hub",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
 	creator: "Applyd Hub",
 	openGraph: {
 		type: "website",
-		url: BASE_URL,
+		url: APP_CONSTANTS.baseUrl,
 		siteName: "Applyd Hub",
 		title: "Applyd Hub — AI Resume Builder & Job Application Tracker",
 		description:

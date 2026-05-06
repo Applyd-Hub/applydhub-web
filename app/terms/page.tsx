@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
+import { APP_CONSTANTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Applyd Hub",
@@ -30,7 +31,7 @@ We may update these terms. Continued use of the app after changes means you acce
 7. Disclaimer
 The app is provided "as is" without warranty. We are not liable for missed deadlines, lost applications, or other outcomes from use of the app.
 
-Contact: codewithafoo.dev@gmail.com`;
+Contact: ${APP_CONSTANTS.email}`;
 
 export default function TermsPage() {
   return <LegalPage title="Terms of Service">{TERMS_TEXT}</LegalPage>;

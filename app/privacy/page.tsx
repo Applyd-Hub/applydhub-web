@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
+import { APP_CONSTANTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Applyd Hub",
@@ -31,7 +32,7 @@ This app is not intended for children under 16. We do not knowingly collect data
 8. Changes
 We may update this policy. We will notify you of significant changes through the app.
 
-Contact: codewithafoo.dev@gmail.com`;
+Contact: ${APP_CONSTANTS.email}`;
 
 export default function PrivacyPage() {
   return <LegalPage title="Privacy Policy">{PRIVACY_TEXT}</LegalPage>;

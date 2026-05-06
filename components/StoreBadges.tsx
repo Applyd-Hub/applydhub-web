@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaApple } from "react-icons/fa";
+import { APP_CONSTANTS } from "@/lib/constants";
 
 interface StoreBadgesProps {
 	variant?: "dark" | "onPrimary";
@@ -23,7 +24,7 @@ export default function StoreBadges({
 		<div className={`flex flex-wrap justify-center gap-3 ${className}`}>
 			{/* Google Play */}
 			<a
-				href="https://play.google.com/apps/testing/com.afooinc.applydhub"
+				href={APP_CONSTANTS.googlePlay}
 				target="_blank"
 				rel="noopener noreferrer"
 				title="Get it on Google Play"
@@ -48,7 +49,7 @@ export default function StoreBadges({
 
 			{/* App Store */}
 			<a
-				href="https://apps.apple.com/fr/app/applydhub/id6670575109"
+				href={APP_CONSTANTS.appStore}
 				target="_blank"
 				rel="noopener noreferrer"
 				title="Download on the App Store"

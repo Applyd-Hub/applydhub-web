@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { APP_CONSTANTS } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -19,10 +20,10 @@ export default function Footer() {
             Privacy
           </Link>
           <a
-            href="mailto:hello@applydhub.com"
+            href={`mailto:${APP_CONSTANTS.email}`}
             className="transition-colors hover:text-white"
           >
-            hello@applydhub.com
+            {APP_CONSTANTS.email}
           </a>
         </div>
         <p className="text-xs text-white/30">
